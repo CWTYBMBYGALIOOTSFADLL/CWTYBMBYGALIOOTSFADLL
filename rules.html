@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules - CWTYBMBYGALIOOTSFADLL</title>
+</head>
+<body style="position: relative; background-color: #334499; margin: 0; padding: 20px; font-family: 'Pusab', sans-serif;">
+    <div class="rules-container">
+        <h1 class="rules-title">RULES</h1>
+        <hr style="color: white;">
+        <div class="rules-content">
+            <!-- Add your rules here -->
+            <p>Rule 1: You must upload a picture of the bottle you have, and choose to do one of these options:</p>
+            <p>1. Upload a video of you drinking the bottle</p>
+            <p>2. Upload 2 pictures, the first being a cup thats with the drink inside and a picture of it being sipped.</p>
+            <hr style="color: white;">
+            <p>Rule 2: If the total gameplay time is over 2 hours, every 2 hours you need to take a sip.</p>
+            <hr style="color: white;">
+            <p>Rule 3: A recording of the gameplay is needed.</p>
+            <hr style="color: white;">
+            <p>Rule 4: If you think its expired enough then you are fucking disqualified.</p>
+            <hr style="color: white;">
+            <p>Rule 5: You can use the bottle to jump.</p>
+            <hr style="color: white;">
+            <p style="color: red !important;">Rule 6: NO EXPLOITING. Exploiting will result in a ban from the upload form.</p>
+            <hr style="color: white;">
+            <p>Rule 7: Must have audio in the video of any sort of register that makes you jump in Geometry Dash. Having only edited in audio doesn't count.</p>
+            <hr style="color: white;">
+            <p>Rule 8: Must show a death attempt before the attempt which the level is verified on (unless you verified it on the first attempt).</p>
+            <hr style="color: white;">
+            <p>Rule 9: Must reach 100%, or hit the end wall of the level.</p>
+            <hr style="color: white;">
+            <p>Rule 10: No modifications of the level can be made, only the unmodified level being completed can be qualified.</p>
+            <hr style="color: white;">
+            <p>Rule 11: No secret ways or bugs.</p>
+            <hr style="color: white;">
+            <p>Rule 12: No secret ways or bugs.</p>
+        </div>
+    </div>
+
+    <button class="back-button rules">
+        <img src="GJ_button_01-uhd.png" alt="icon" class="btn-img">
+        <span class="btn-text">Back</span>
+    </button>
+</body>
+<style>
+    @font-face {
+        font-family: 'Pusab';
+        src: url('fonts/PUSAB___.otf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .rules-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #335999;
+        border: 4px solid black;
+        outline: 4px solid white;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+
+    .rules-title {
+        color: #ffe658;
+        font-size: min(40px, 6vw);
+        text-align: center;
+        margin: 0 0 30px 0;
+        -webkit-text-stroke: 1px black;
+        font-family: 'Pusab', sans-serif;
+    }
+
+    .rules-content {
+        color: white;
+        font-size: min(24px);
+        line-height: 1.6;
+        -webkit-text-stroke: 1px black;
+        font-family: 'Pusab', sans-serif;
+    }
+
+    .rules {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 120px;
+        height: 70px;
+        padding: 0;
+        border: none;
+        background: none;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 300ms cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    }
+    .btn-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .btn-text {
+        font-family: 'Pusab', sans-serif;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        -webkit-text-stroke: 1px black;
+        font-size: 2em;
+        font-weight: bold;
+    }
+    .rules.animating {
+        animation: buttonCtaBounce 0.5s forwards;
+    }
+    .rules:hover:not(:active):not(.animating) {
+        transform: scale(1);
+        filter: drop-shadow(4px 4px 8px rgba(0,0,0,.2));
+    }
+    .rules:active {
+        transform: scale(0.9);
+        transition: all 150ms cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    }
+    .rules:not(:hover):not(:active):not(.animating) {
+        animation: buttonBounceBack 0.3s forwards;
+    }
+    @keyframes buttonCtaBounce {
+        0% { transform: scale(1); }
+        25% { transform: scaleX(1.2) scaleY(0.8); }
+        50% { transform: scaleX(0.8) scaleY(1.2); }
+        75% { transform: scaleX(1.1) scaleY(1.1); }
+    }
+    @keyframes buttonBounceBack {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.95); }
+        100% { transform: scale(1); }
+    }
+
+    @media screen and (max-width: 768px) {
+        .rules-container {
+            margin: 60px 10px 10px 10px;
+        }
+    }
+</style>
+<script>
+    const rulesButton = document.querySelector('.rules');
+    function handleButtonHover(button) {
+        if (!button.classList.contains('animating')) {
+            button.classList.add('animating');
+            button.addEventListener('animationend', () => {
+                button.classList.remove('animating');
+            }, { once: true });
+        }
+    }
+    rulesButton.addEventListener('mouseenter', () => handleButtonHover(rulesButton));
+    rulesButton.addEventListener('click', function() {
+        window.location.href = './index.html';
+    });
+</script>
+</html> 
