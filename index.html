@@ -31,7 +31,7 @@
         </button>
     </div>
     <div class="searchbar-container top-searchbar" style="margin-bottom: 40px;">
-        <input type="text" id="topSearchInput" placeholder="Search completions..." />
+        <input type="text" id="topSearchInput" class="topsearchinputbruh" placeholder="Search completions..."/>
     </div>
     <div class="main-flex">
         <div class="left-box">
@@ -39,19 +39,9 @@
                 <h1 style="font-family: 'Pusab'; text-align: center;">
                     COMPLETION<br>LEADERBOARD
                 </h1>
-                <div id="noCompletionsMsg" style="display:true; color:#ffffff; text-align:center; font-family:'Pusab'; font-size:20px; margin-top:20px; -webkit-text-stroke: 1px black;">No completions found</div>
+                <div id="noCompletionsMsg" style="display:true; color:#ffffff; text-align:center; font-family:'Pusab'; font-size:20px; margin-top:20px; -webkit-text-stroke: 1px black;">No completions yet...</div>
                 <!-- Write your comments here
-                 <div class="completion-entry" role="button" tabindex="0"
-                     data-name="pee pee poo"
-                     data-creator="WimpieBok"
-                     data-verifier="WimpieBok"
-                     data-yt="DNyiI3gtVwU"
-                     data-levelid="122287398"
-                     style="cursor: pointer;">
-                    <span class="rank">#1</span>
-                    <span class="name">pee pee poo</span>
-                    <span class="points">100%</span>
-                </div>
+                 
                 <div class="completion-entry" role="button" tabindex="0"
                      data-name="tom tom"
                      data-creator="tom"
@@ -64,6 +54,18 @@
                     <span class="points">100%</span>
                 </div>
                 -->
+
+                <div class="completion-entry" role="button" tabindex="0"
+                     data-name="Blueberry City"
+                     data-creator="TonyMakaroni"
+                     data-verifier="To be verified"
+                     data-yt=""
+                     data-levelid="123125799"
+                     style="cursor: pointer;">
+                    <span class="rank">-</span>
+                    <span class="name">Blueberry City</span>
+                    <span class="points">0%</span>
+                </div>
             </div>
         </div>
         <div class="main-center-box">
@@ -105,6 +107,18 @@
 </body>
 </html>
 <style>
+    .center-details p {
+        font-family: 'Pusab';
+        -webkit-text-stroke: 1px black;
+        color: white;
+        font-size: 1.7rem;
+    }
+
+    .topsearchinputbruh {
+        opacity: 0;
+        margin-bottom: -60px;
+    }
+    
     .completionleaderboardtext {
         font-size: 1.7rem !important;
     }
@@ -946,8 +960,12 @@ function updateCenterBoxFromEntry(entry) {
   document.querySelector('.center-details').style.display = '';
   document.querySelector('.center-content .creator-line').textContent = `Creator(s): ${creator}`;
   document.querySelector('.center-content .verifier-line').textContent = `Verifier: ${verifier}`;
-  document.querySelector('.center-content .video-wrapper iframe').src = `https://www.youtube.com/embed/${yt}`;
-  document.querySelector('.center-content .video-wrapper').style.display = '';
+  if (yt === "") {
+    document.querySelector('.center-content .video-wrapper')?.remove();
+    document.querySelector('.center-content hr')?.remove();
+  } else {
+    document.querySelector('.center-content .video-wrapper iframe')?.setAttribute('src', `https://www.youtube.com/embed/${yt}`);
+  }
   document.querySelector('.center-content .level-id-line').textContent = `ID: ${levelid}`;
 }
 
